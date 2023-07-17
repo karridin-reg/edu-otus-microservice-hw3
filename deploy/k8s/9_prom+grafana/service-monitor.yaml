@@ -1,0 +1,22 @@
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: metrics-monitor
+  labels:
+    app: metrics-monitor
+    
+spec:
+  endpoints:
+    - port: 80tcp
+      scrapeTimeout: 30s
+      path: /metrics
+      honorLabels: true
+      scheme: http
+#  jobLabel: stack
+  namespaceSelector:
+    matchNames:
+      - default
+  selector:
+    matchLabels:
+      app: hw3-app
+  

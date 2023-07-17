@@ -1,0 +1,5 @@
+postgresql:
+  auth:
+    username: user
+    password: password
+    database: crud-app

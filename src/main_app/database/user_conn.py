@@ -10,6 +10,11 @@ def get_user(db: Session, user_id: int):
     return db.execute(stmt).scalar_one_or_none()
 
 
+def get_user_by_name(db: Session, user_name: str):
+    stmt = select(User).where(User.username == user_name)
+    return db.execute(stmt).scalar_one_or_none()
+
+
 def create_user(db: Session, user: schemas.UserBase):
     db_user = User(username=user.username,
                    email=user.email,

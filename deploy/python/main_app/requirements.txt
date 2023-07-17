@@ -1,0 +1,7 @@
+fastapi==0.98.0
+SQLAlchemy==2.0.16
+psycopg2-binary==2.9.6
+uvicorn==0.22.0
+pydantic==1.10.9
+prometheus-fastapi-instrumentator==6.0.0
+python-jose==3.3.0
