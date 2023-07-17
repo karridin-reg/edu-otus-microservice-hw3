@@ -1,0 +1,44 @@
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: main-app-ingress # Перезаписываем уже существующий ingress
+  labels:
+    app: main-app-service
+  annotations:
+    nginx.ingress.kubernetes.io/auth-url: http://auth-service.default.svc.cluster.local/auth/nginx
+    nginx.ingress.kubernetes.io/auth-response-headers: authorization
+spec:
+  ingressClassName: nginx
+  rules:
+    - host: arch.homework
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: main-app-service
+                port:
+                  number: 80
+
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: main-service-registration-ingress
+  labels:
+    app: main-app-service
+spec:
+  ingressClassName: nginx
+  rules:
+    - host: arch.homework
+      http:
+        paths:
+          - path: /signup/
+            pathType: Prefix
+            backend:
+              service:
+                name: main-app-service
+                port:
+                  number: 80

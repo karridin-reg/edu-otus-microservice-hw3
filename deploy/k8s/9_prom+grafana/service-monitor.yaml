@@ -18,5 +18,5 @@ spec:
       - default
   selector:
     matchLabels:
-      app: hw3-app
+      app: main-app
   

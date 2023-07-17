@@ -1,9 +1,9 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: hw3-ingress
+  name: main-app-ingress
   labels:
-    app: hw3-service
+    app: main-app-service
 spec:
   ingressClassName: nginx
   rules:
@@ -14,6 +14,6 @@ spec:
             pathType: Prefix
             backend:
               service:
-                name: hw3-service
+                name: main-app-service
                 port:
                   number: 80

@@ -428,7 +428,7 @@
             "uid": "prometheus"
           },
           "editorMode": "code",
-          "expr": "sum by (handler) (rate(nginx_ingress_controller_requests{ingress=\"hw3-ingress\"}[2m]))",
+          "expr": "sum by (handler) (rate(nginx_ingress_controller_requests{ingress=\"main-app-ingress\"}[2m]))",
           "hide": false,
           "legendFormat": "nginx",
           "range": true,
@@ -532,7 +532,7 @@
             "uid": "prometheus"
           },
           "editorMode": "code",
-          "expr": "sum (rate(nginx_ingress_controller_requests{ingress=\"hw3-ingress\", status=\"500\"}[2m]))",
+          "expr": "sum (rate(nginx_ingress_controller_requests{ingress=\"main-app-ingress\", status=\"500\"}[2m]))",
           "hide": false,
           "legendFormat": "nginx",
           "range": true,
